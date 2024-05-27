@@ -16,9 +16,9 @@ public class Dev {
     @Bean
     public ApplicationRunner init(MemberService memberService) {
         return args -> {
-            memberService.signup("admin", passwordEncoder.encode("admin"), "admin", "admin@test.com");
-            memberService.signup("user1", passwordEncoder.encode("user1"), "박현철", "user1@test.com");
-            memberService.signup("user2", passwordEncoder.encode("user2"), "황예지", "user2@test.com");
+            memberService.signup("admin", "admin" ,"admin", "admin@test.com");
+            memberService.signup("user1", "user1", "박현철", "user1@test.com");
+            memberService.signup("user2", "user2", "황예지", "user2@test.com");
         };
     }
 }
