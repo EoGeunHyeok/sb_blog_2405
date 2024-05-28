@@ -30,34 +30,35 @@ public class MemberController {
         return "member/signup";
     }
     @PostMapping("/signup")
-    public String signup(@Valid SignForm sinForm) {
-        memberService.signup(sinForm.getUsername(), sinForm.getPassword(), sinForm.getNickname(), sinForm.email);
-        return "member/signup";
+    public String signup(@Valid SignForm signForm) {
+
+        memberService.signup(signForm.getUsername(), signForm.getPassword(), signForm.getNickname(), signForm.getEmail());
+
+        return "redirect:/member/login";
     }
+
     @Getter
     @Setter
     @ToString
     public static class SignForm {
         @NotBlank
-        @Length(min= 2)
+        @Length(min = 3)
         private String username;
 
         @NotBlank
-        @Length(min= 4)
+        @Length(min = 4)
         private String password;
 
         @NotBlank
-        @Length(min= 4)
-        private String password_form;
+        @Length(min = 4)
+        private String password_confirm;
 
         @NotBlank
-        @Length(min= 4)
+        @Length(min = 3)
         private String nickname;
 
         @NotBlank
-        @Length(min= 4)
+        @Length(min = 4)
         private String email;
     }
-
-
 }
