@@ -19,5 +19,5 @@ import lombok.experimental.SuperBuilder;
 public class Post extends BaseEntity {
     private String title;
     private String content;
-
+    private String thumbnailImg;
 }
